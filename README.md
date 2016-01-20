@@ -1,2 +1,4 @@
-# tighten-your-sass
-Tech Crunch Munch Ten
+# Tighten Your SASS
+## Tech Munch Crunch Ten
+
+Please fork this repo and clone.

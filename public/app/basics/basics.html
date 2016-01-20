@@ -1,0 +1,24 @@
+<div class="row">
+
+    <aside class="col-xs-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1 class="panel-title">SASS Basics</h1>
+            </div>
+            <nav class="panel-body">
+            <ol class="nav nav-pills nav-stacked">
+                <li data-ui-sref-active="active"><a data-ui-sref="basics.basic({basicName:'variables'})">1 Variables</a></li>
+                <li data-ui-sref-active="active"><a data-ui-sref="basics.basic({basicName:'mixins'})">2 Mixins</a></li>
+                <li data-ui-sref-active="active"><a data-ui-sref="basics.basic({basicName:'nesting'})">3 Nesting</a></li>
+                <li data-ui-sref-active="active"><a data-ui-sref="basics.basic({basicName:'extend'})">4 Extend</a></li>
+            </ol>
+            </nav>
+        </div>
+    </aside>
+
+    <section class="col-xs-8">
+        <article class="slideVert" ui-view></article>
+    </section>
+</div>
+
+<p><a data-ui-sref="survey" class="btn btn-default pull-right">Survey &rarr;</a></p>

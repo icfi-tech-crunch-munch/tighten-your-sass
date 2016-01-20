@@ -1,0 +1,30 @@
+doctype
+html(lang="en")
+    head
+        link(rel='stylesheet', href='/scripts/bootstrap/dist/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/css/global.css')
+        title Tighten Your SASS
+    body(data-ng-app='tightenSASS')
+        nav.navbar.navbar-default.navbar-fixed-top
+            div.container
+                div.navbar-header
+                    a(data-ui-sref="home" class="navbar-brand") Tighten Your SASS
+                div
+                    ul.nav.navbar-nav
+                        li(data-ng-class="{active: $state.includes('intro-to-sass')}")
+                            a(data-ui-sref="intro-to-sass") Intro to SASS
+                        li(data-ng-class="{active: $state.includes('basics')}")
+                            a(data-ui-sref="basics.basic({basicName:'variables'})") SASS Basics
+                        li(data-ng-class="{active: $state.includes('survey')}")
+                            a(data-ui-sref="survey") Survey
+
+        main.container
+            section.slide(ui-view)
+
+        script(src='/scripts/jquery/dist/jquery.min.js')
+        script(src='/scripts/bootstrap/dist/js/bootstrap.min.js')
+        script(src='/scripts/angular/angular.js')
+        script(src='/scripts/angular-animate/angular-animate.min.js')
+        script(src='/scripts/angular-ui-router/release/angular-ui-router.min.js')
+        script(src='/app/tightenSASSApp.js')
+        script(src='/app/tightenSASSBasics.js')
