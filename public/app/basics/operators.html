@@ -1,0 +1,27 @@
+<h1>Operators</h1>
+
+<h2>Number Operators</h2>
+
+<p>Arithmatic operations can be applied to variables and literals. <code>+, -, *, /, %</code> are all supported.</p>
+
+<p>There are a few caveats</p>
+
+<ul>
+    <li>Two literals with a division operator are not divided: <code>font: 10px/5px;</code> will not compile to <code>font: 2px;</code>, but <code>font: (10px/5px);</code> will.</li>
+    <li>Two variables need to be interpolated if you don't want the division operator applied: <code>font: #{$font-size}/#{$line-height};</code> will compile to <code>font: 10px/5px;</code></li>
+    <li>Units that aren't compatible will throw an error in operations such as: <code>height: 2em + 10px;</code></li>
+</ul>
+
+<h2>String Operators</h2>
+
+<p>Strings can be concatinated with the <code>+</code> operator.</p>
+
+<p>If strings are concatinated with mixed quotes, the quote use of the left element is used.</p>
+
+<p><code>"Droid" + sans</code> = <code>"Droid Sans"</code></p>
+
+<p><code>sans + "-serif"</code> = <code>sans-serif</code></p>
+
+<h2>Boolean Operators</h2>
+
+<p>Boolean operations include: <code>and, or, not</code></p>

@@ -1,1 +1,60 @@
 <h2>Mixins</h2>
+
+<p>Sass mixins allow you to easily reuse blocks of properties, such as vendor prefixes.</p>
+
+<pre class="language-scss"><code class="language-scss">@mixin size ($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+.thumbnail {
+    @include size(160px, 90px);
+}</code></pre>
+
+<p>Compiles to:</p>
+
+<pre class="language-css"><code class="language-css">.thumbnail {
+    width: 160px;
+    height: 90px;
+}</code></pre>
+
+<h3>Argument Default Values</h3>
+
+<p>Mixin arguments can accept default values.</p>
+
+<pre class="language-scss"><code class="language-scss">@mixin size ($width: auto, $height: auto) {
+    width: $width;
+    height: $height;
+}
+
+.thumbnail {
+    @include size(160px);
+}</code></pre>
+
+<p>Compiles to:</p>
+
+<pre class="language-css"><code class="language-css">.thumbnail {
+    width: 160px;
+    height: auto;
+}</code></pre>
+
+<h3>Arguments passed as a map</h3>
+
+<p>Mixins can accept a map for arguments.</p>
+
+<pre class="language-scss"><code class="language-scss">@mixin size ($width: auto, $height: auto) {
+    width: $width;
+    height: $height;
+}
+
+.thumbnail {
+    @include size($height: 150px);
+}</code></pre>
+
+<p>Compiles to:</p>
+
+<pre class="language-css"><code class="language-css">.thumbnail {
+    width: auto;
+    height: 150px;
+}</code></pre>
+

@@ -1,0 +1,36 @@
+<h1>Partials &amp; Importing</h1>
+
+<p>One advantage of Sass is the ability to organize your CSS into smaller reusable comonents.</p>
+
+<p>Prepending a filename with an underscore, such as <code>_type.scss</code> ensures that that file will not be compmiled as a .css file.</p>
+
+<p>Instead, several partials are added to a .scss file via <code>@include</code> that are compiled to .css</p>
+
+<p><strong>_utilities.scss</strong></p>
+
+<pre class="language-scss"><code class="language-scss">.pull-right {
+  float: right !important;
+}</code></pre>
+
+<p><strong>_type.scss</strong></p>
+
+<pre class="language-sass"><code class="language-sass">h1 {
+  font-size: 2em;
+}</code></pre>
+
+<p><strong>styles.scss</strong></p>
+
+<pre class="language-sass"><code class="language-sass">@include 'utilities';
+@include 'type';</code></pre>
+
+<p>Note the omission of the .scss extension and the underscore prefix in the include.
+
+<p>The compiled <strong>styles.css</strong>:</p>
+
+<pre class="language-css"><code class="language-css">.pull-right {
+  float: right !important;
+}
+
+h1 {
+  font-size: 2em;
+}</code></pre>

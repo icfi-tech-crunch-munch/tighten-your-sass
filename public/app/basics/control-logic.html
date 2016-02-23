@@ -1,0 +1,106 @@
+<h2>Control Logic</h2>
+
+<p>Sass provides a handful of control logic directives.</p>
+
+<h3>@if</h3>
+
+<pre class="language-scss"><code class="language-scss">@mixin absolutely ($top:null, $right:null, $bottom:null, $left:null) {
+    position: absolute;
+    @if ($top)      { top: $top; }
+    @if ($right)    { right: $right; }
+    @if ($bottom)   { bottom: $bottom; }
+    @if ($left)     { left: $left; }
+}
+
+.thumbnail {
+    @include absolutely($bottom: 0, $right: 0);
+}</code></pre>
+
+<p>Compiles to:</p>
+
+<pre class="language-css"><code class="language-css">.thumbnail {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}</code></pre>
+
+<h3>@for</h3>
+
+<pre class="language-scss"><code class="language-scss">@for $index from 1 through 3 {
+    .item-#{$index} { width: 10px * $index; }
+}</code></pre>
+
+<p>Compiles to:</p>
+
+<pre class="language-css"><code class="language-css">.item-1 {
+    width: 10px;
+}
+.item-2 {
+    width: 20px;
+}
+.item-3 {
+    width: 30px;
+}</code></pre>
+
+<h3>@each</h3>
+
+<pre class="language-scss"><code class="language-scss">@each $icon in error, warning, info {
+    .icon-#{$icon} {
+        background-image: url('/images/icon-#{$icon}.png');
+    }
+}</code></pre>
+
+<p>Compiles to:</p>
+
+<pre class="language-css"><code class="language-css">.icon-error {
+    background-image: url('/images/icon-error.png');
+}
+.icon-warning {
+    background-image: url('/images/icon-warning.png');
+}
+.icon-info {
+    background-image: url('/images/icon-info.png');
+}</code></pre>
+
+
+<h3>@for</h3>
+
+<pre class="language-scss"><code class="language-scss">@for $index from 1 through 3 {
+    .item-#{$index} { width: 10px * $index; }
+}</code></pre>
+
+<p>Compiles to:</p>
+
+<pre class="language-css"><code class="language-css">.item-1 {
+    width: 10px;
+}
+.item-2 {
+    width: 20px;
+}
+.item-3 {
+    width: 30px;
+}</code></pre>
+
+<h3>@while</h3>
+
+<pre class="language-scss"><code class="language-scss">$cols: 1;
+@while $cols &lt;= 8 {
+    .col-#{$cols} {
+        width: 100% * ($cols / 8);
+    }
+    $cols: $cols * 2;
+}</code></pre>
+
+<p>Compiles to:</p>
+
+<pre class="language-css"><code class="language-css">.col-1 {
+  width: 12.5%; }
+
+.col-2 {
+  width: 25%; }
+
+.col-4 {
+  width: 50%; }
+
+.col-8 {
+  width: 100%; }</code></pre>

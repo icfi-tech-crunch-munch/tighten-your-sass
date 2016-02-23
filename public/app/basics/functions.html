@@ -1,0 +1,23 @@
+<h2>Functions</h2>
+
+<p>Sass offers a number of functions, including: color functions, opacity functions, string functions, number functions, list &amp; map functions and a handful of introspection functions</p>
+
+<p>I enourage perusing this list: <a href="http://sass-lang.com/documentation/Sass/Script/Functions.html">http://sass-lang.com/documentation/Sass/Script/Functions.html</a></p>
+
+<h3>Custom Functions</h3>
+
+<p>If none of the built in Sass functions suite your need, you can create your own function</p>
+
+<pre class="language-scss"><code class="language-scss">@function sqrt($number) {
+    @return $number * $number;
+}
+
+.panel {
+    margin: sqrt(5px);
+}</code></pre>
+
+<p>Compiles to:</p>
+
+<pre class="language-css"><code class="language-css">.panel {
+    margin: 25px;
+}</code></pre>

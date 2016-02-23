@@ -1,0 +1,52 @@
+<h2>Nesting</h2>
+
+<p>Try to avoid nesting as much as possible, utilize classnames to do so.</p>
+
+<p>Do not nest more than two, maybe three levels for tables or similar.</p>
+
+<pre class="language-html"><code class="language-html">&lt;section class="panel panel-error">
+    &lt;header class="panel-header">
+        &lt;h1 class="panel-title">Panel Title&lt;/h1>
+    &lt;/header>
+    &lt;div class="panel-body">
+
+    &lt;/div>
+&lt;/section></code></pre>
+
+<p><strong>discouraged:</strong></p>
+
+<pre class="language-css"><code class="language-css">.panel {
+    border: 1px solid #ccc;
+
+    header {
+        padding: 15px;
+        background-color: lighten(#ccc, 5%);
+
+        h1 {
+            font-size: 18px;
+        }
+    }
+}</code></pre>
+
+<p><strong>preferred:</strong></p>
+
+<pre class="language-css"><code class="language-css">.panel {
+    border: 1px solid #ccc;
+}
+
+.panel-header {
+    padding: 15px;
+    background-color: lighten(#ccc, 5%);
+}
+
+.panel-title {
+    font-size: 18px;
+}
+
+.panel-error {
+    border: 1px solid #f00;
+
+    .panel-title {
+        color: #f00;
+    }
+}</code></pre>

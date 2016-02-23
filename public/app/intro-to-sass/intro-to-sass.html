@@ -1,5 +1,82 @@
-<h1>What is SASS</h1>
+<h1>What is Sass</h1>
 
-<h2>SASS vs. LESS. vs. Stylus</h2>
+<p>Sass = Syntactically Awesome StyleSheets</p>
 
-<p><a data-ui-sref="basics.basic({basicName:'variables'})" class="btn btn-default pull-right">SASS Basics &rarr;</a></p>
+<p>CSS Processors are CSS with special sauce that compiles down to plain old CSS that should work in any browser.</p>
+
+<h2>Less. vs. Sass vs. Stylus</h2>
+
+<h3>Less</h3>
+
+<p>Less is "entry level" CSS enhancement. Lacks some of the control logic that Sass and Stylus have.</p>
+
+<p>Less syntax follows CSS very closely. Brackets and semicolons are requred.</p>
+
+<p>Bootstrap uses Less for version 3 and under, but is switching to Sass for v4. There is a popular mixin library called LESShat.</p>
+
+<pre class="language-less"><code class="language-less">@base-border-color: #ccc;
+@base-border-width: 1px;
+@base-border-style: solid;
+
+.panel {
+    border: @base-border-width @base-border-style @base-border-color;
+}</code></pre>
+
+<p>Compiles to:</p>
+
+<pre class="language-css"><code class="language-css">.panel {
+    border: 1px solid red;
+}</code></pre>
+
+<p>Less.js is the core preprocesor. You could include the JavaScript library and include .less files into your project, but it's not recommended. There are wrappers that use Less.js to preprocess .less files into CSS.</p>
+
+<h3>Stylus</h3>
+
+<p>Stylus is a more "feature complete" CSS enhancement. It has control logic (if statements, loops) that Less lacks, as well as a few other benefits.</p>
+
+<p>Stylus syntax is a lot more flexible than either Less or Sass. You can write in typical CSS style with brackets and semicolon or eschew those for whitespace significance, or some combination of both.</p>
+
+<pre class="language-stylus"><code class="language-stylus">base-border-color = #ccc
+base-border-width = 1px
+base-border-style = solid
+
+.panel
+    border base-border-width base-border-style base-border-color</code></pre>
+
+<p>Compiles to:</p>
+
+<pre class="language-css"><code class="language-css">.panel {
+    border: 1px solid red;
+}</code></pre>
+
+<p>Stylus is typically compiled via Node.js along with a task runner like grunt.</p>
+
+<p>So far as I know there aren't any popular frameworks that use stylus. There is a popular mixin library called Nib.</p>
+
+<h3>Sass</h3>
+
+<p>Sass agressivly tries to match features with the competition. It has control logic (if statements, loops) that Less lacks, as well as a few other benefits.</p>
+
+<p>Sass syntax is more flexible than either Less, but not as much as Stylus. You can write in typical CSS style with brackets and semicolon, but you have to name your file with .scss extention or you can eschew those for whitespace significance in a file with .sass extension. You cannot mix code styles.</p>
+
+<p>Scss is typically more common, and all examples will follow that syntax style.</p>
+
+<pre class="language-sass"><code class="language-sass">$base-border-color: #ccc;
+$base-border-width: 1px;
+$base-border-style: solid;
+
+.panel {
+    border: $base-border-width $base-border-style $base-border-color;
+}</code></pre>
+
+<p>Compiles to:</p>
+
+<pre class="language-css"><code class="language-css">.panel {
+    border: 1px solid red;
+}</code></pre>
+
+<p>Sass previously had a ruby on rails dependancy, but there is a port called libsass that is developed concurrently.</p>
+
+<p>Frameworks that use scss include bootstrap 4 and Zurb Foundation. There are two popular mixin libraries: compass and bourbon.</p>
+
+<p><a data-ui-sref="basics.basic({basicName:'partials'})" class="btn btn-default pull-right">Special Sauce &rarr;</a></p>

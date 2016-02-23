@@ -1,1 +1,109 @@
 <h2>Variables</h2>
+
+<p>Sass allows you to define variables that can be used throughout the stylesheet. This helps reduce "magic numbers" and can speed up global changes.</p>
+
+<p>The <code>$</code> symbol is used to prepend a variable name.</p>
+
+<pre class="language-scss"><code class="language-scss">$brand-primary-color: #026475;
+$brand-seconday-color: #a94b08;
+
+#site-header {
+    background-color: $brand-primary-color;
+}
+
+#site-footer {
+    background-color: $brand-secondary-color;
+}</code></pre>
+
+<p>Compiles to:</p>
+
+<pre class="language-css"><code class="language-css">#site-header {
+    background-color: #026475;
+}
+
+#site-footer {
+    background-color: #a94b08;
+}</code></pre>
+
+<h3>Variable Types</h3>
+
+<p>Variables can be any of the following types:</p>
+
+<ul>
+    <li>numbers or numbers with units <code>1, 1.2, 12px</code></li>
+    <li>strings of text with or without quotes <code>"Mike D", 'Ad-Rock', MCA</code></li>
+    <li>colors <code>red, #ff0000, rgba(255, 0, 0, 1)</code></li>
+    <li>booleans <code>true, false</code></li>
+    <li>null <code>null</code></li>
+    <li>lists separated by spaces or commas <code>20px 10px 10px 20px -or- Helvetica, Arial, sans-serif</code></li>
+    <li>maps <code>(weight: 2px, color: #ff0000, style: solid)</code></li>
+</ul>
+
+<h3>Default</h3>
+
+<p>By adding <code>!default</code> to the end of the variable declaration, the variable will only be set if it hasn't already been assigned a value</p>
+
+<pre class="language-scss"><code class="language-scss">$brand-primary-color: #026475;
+$brand-primary-color: #a94b08 !default;
+$brand-secondary-color: #a94b08 !default;
+
+#site-header {
+    background-color: $brand-primary-color;
+}
+
+#site-footer {
+    background-color: $brand-secondary-color;
+}</code></pre>
+
+<p>Compiles to:</p>
+
+<pre class="language-css"><code class="language-css">#site-header {
+    background-color: #026475;
+}
+
+#site-footer {
+    background-color: #a94b08;
+}</code></pre>
+
+<h3>Scope</h3>
+
+<p>Variables are scoped to the block they are contained in</p>
+
+<pre class="language-scss"><code class="language-scss">$brand-primary-color: #026475;
+
+#site-header {
+    background-color: $brand-primary-color;
+}
+
+#site-footer {
+    $brand-primary-color: #a94b08;
+    background-color: $brand-primary-color;
+}</code></pre>
+
+<p>Compiles to:</p>
+
+<pre class="language-css"><code class="language-css">#site-header {
+    background-color: #026475;
+}
+
+#site-footer {
+    background-color: #a94b08;
+}</code></pre>
+
+<h3>Interpolation</h3>
+
+<p>Variables can be used in selector and property names via interpolation syntax <code>#{}</code></p>
+
+<pre class="language-scss"><code class="language-scss">$id: #site-header;
+$property: background;
+$brand-primary-color: #026475;
+
+header#{$id} {
+    #{$property}-color: $brand-primary-color;
+}</code></pre>
+
+<p>Compiles to:</p>
+
+<pre class="language-css"><code class="language-css">header#site-header {
+    background-color: #026475;
+}</code></pre>

@@ -2,19 +2,23 @@ doctype
 html(lang="en")
     head
         link(rel='stylesheet', href='/scripts/bootstrap/dist/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/scripts/prism/themes/prism-twilight.css')
         link(rel='stylesheet', href='/css/global.css')
-        title Tighten Your SASS
+        title Tighten Your Sass
     body(data-ng-app='tightenSASS')
+        script(src='/scripts/prism/prism.js')
         nav.navbar.navbar-default.navbar-fixed-top
             div.container
                 div.navbar-header
-                    a(data-ui-sref="home" class="navbar-brand") Tighten Your SASS
+                    a(data-ui-sref="home" class="navbar-brand") Tighten Your Sass
                 div
                     ul.nav.navbar-nav
                         li(data-ng-class="{active: $state.includes('intro-to-sass')}")
-                            a(data-ui-sref="intro-to-sass") Intro to SASS
+                            a(data-ui-sref="intro-to-sass") Intro to Sass
                         li(data-ng-class="{active: $state.includes('basics')}")
-                            a(data-ui-sref="basics.basic({basicName:'variables'})") SASS Basics
+                            a(data-ui-sref="basics.basic({basicName:'partials'})") Sass Basics
+                        li(data-ng-class="{active: $state.includes('bestPractices')}")
+                            a(data-ui-sref="bestPractices.bestPractice({bestPracticeName:'partials'})") Best Practices
                         li(data-ng-class="{active: $state.includes('survey')}")
                             a(data-ui-sref="survey") Survey
 
@@ -28,3 +32,4 @@ html(lang="en")
         script(src='/scripts/angular-ui-router/release/angular-ui-router.min.js')
         script(src='/app/tightenSASSApp.js')
         script(src='/app/tightenSASSBasics.js')
+        script(src='/app/tightenSASSBestPractices.js')

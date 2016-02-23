@@ -1,1 +1,104 @@
 <h2>Nesting</h2>
+
+<p>CSS Selectors can be nested to apply a parent selector to several elements</p>
+
+<pre class="language-scss"><code class="language-scss">$brand-primary-color: #026475;
+
+#site-header {
+    background-color: $brand-primary-color;
+
+    a {
+        display: block;
+    }
+}</code></pre>
+
+<p>Compiles to:</p>
+
+<pre class="language-css"><code class="language-css">#site-header {
+    background-color: $brand-primary-color;
+}
+    #site-header a {
+        display: block;
+    }</code></pre>
+
+<h3>Parent Reference</h3>
+
+<p>Child Selectors can reference their parent element with the <code>&amp;</code> character</p>
+
+<pre class="language-scss"><code class="language-scss">$brand-primary-color: #026475;
+
+#site-header {
+    background-color: $brand-primary-color;
+
+    a {
+        display: block;
+
+        &amp;:hover,
+        &amp;:focus {
+            background-color: darken($brand-primary-color, 10%);
+        }
+    }
+}</code></pre>
+
+<p>Compiles to:</p>
+
+<pre class="language-css"><code class="language-css">#site-header {
+    background-color: $brand-primary-color;
+}
+    #site-header a {
+        display: block;
+    }
+    #site-header a:hover,
+    #site-header a:focus {
+        background-color: #013943;
+    }</code></pre>
+
+<h3>Nested Imports</h3>
+
+<p>If you import a partial into a nested selector, Sass will apply the parent to all of the elements within the partial</p>
+
+<p><strong>_panel.scss</strong></p>
+
+<pre class="language-scss"><code class="language-scss">.panel {
+    border: 1px solid #ccc;
+}
+
+.panel-title {
+    font-size: 2em;
+}</code></pre>
+
+<p><strong>style.scss</strong></p>
+
+<pre class="language-scss"><code class="language-scss">#sidebar {
+    @import 'panel';
+}</code></pre>
+
+<p>Compiles to</p>
+
+<pre class="language-css"><code class="language-css">#sidebar .panel {
+    border: 1px solid #ccc;
+}
+
+#sidebar .panel-title {
+    font-size: 2em;
+}</code></pre>
+
+<h3>Nested Properties</h3>
+
+<p>In addition to nesting selectors, Sass can nest properties.</p>
+
+<pre class="language-scss"><code class="language-scss">.panel-title {
+    font: {
+        size: 2em;
+        weight: normal;
+        family: arial, sans-serif;
+    }
+}</code></pre>
+
+<p>Compiles to</p>
+
+<pre class="language-css"><code class="language-css">.panel-title {
+    font-size: 2em;
+    font-weight: normal;
+    font-family: arial, sans-serif;
+}</code></pre>

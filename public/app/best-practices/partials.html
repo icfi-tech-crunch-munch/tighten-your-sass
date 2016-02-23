@@ -1,0 +1,43 @@
+<h2>Partials &amp; Importing</h2>
+
+<p>Sass allows you to import as many files as you wish with no performance hits due to render blocking or http requests. Take advantage of that to break up the site's CSS into small logical parts.</p>
+
+<p>Sample folder structure:</p>
+
+<pre><code>/css
+    /lib
+        /plugin
+            ...
+            plugin.scss
+    /sass
+        _variables.scss
+        _mixins.scss
+        _utilities.scss
+        _animations.scss
+        _type.scss
+        _grid.scss
+        _forms.scss
+        _tables.scss
+        _panel.scss
+        _buttons.scss
+
+        styles.scss
+</code></pre>
+
+<p><strong>styles.scss</strong></p>
+
+<pre class="language-css"><code class="language-css">@include '../lib/plugin/plugin';
+
+@include 'variables';
+@include 'mixins';
+@include 'animations';
+
+@include 'utilities';
+@include 'grid';
+@include 'type';
+
+@include 'forms';
+@include 'buttons';
+@include 'tables';
+@include 'panel';
+</code></pre>

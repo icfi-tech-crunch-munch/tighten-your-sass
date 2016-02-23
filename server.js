@@ -1,5 +1,4 @@
 var express = require('express');
-var session = require('express-session');
 
 //local variable declaration
 var shutting_down = false;
@@ -14,16 +13,6 @@ app.set('view engine', 'jade');
 app.use(express.static(__dirname + '/public'));
 
 app.disable("x-powered-by");
-app.use(session({
-    secret: "Kuj6Gf",
-    key: "sessionId",
-    saveUninitialized: true,
-    resave: true,
-    cookie: { 
-        httpOnly: true,
-        secure: true 
-    }
-}));
 
 app.use(function (req, resp, next) {
  if(!shutting_down)
@@ -41,7 +30,6 @@ app.set('host', process.env.HOST || '0.0.0.0');
 app.get('*', function (req, res) {
    res.render('index');
 });
-
 
 server = app.listen(app.get('port'), app.get('host'), function () {
  

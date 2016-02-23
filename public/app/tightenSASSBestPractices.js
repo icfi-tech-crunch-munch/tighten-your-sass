@@ -9,22 +9,22 @@
 
         configCommandRoutes = function ($stateProvider) {
             $stateProvider
-                .state("basics", {
+                .state("bestPractices", {
                     abstract    : true,
-                    url         : '/basics',
-                    templateUrl : '/app/basics/basics.html',
+                    url         : '/best-practices',
+                    templateUrl : '/app/best-practices/best-practices.html',
                     controller  : viewController
                 })
 
-                .state("basics.basic", {
-                    url         : '/:basicName',
+                .state("bestPractices.bestPractice", {
+                    url         : '/:bestPracticeName',
                     templateUrl : function ($stateParams) {
-                        return '/app/basics/' + $stateParams.basicName + '.html';
+                        return '/app/best-practices/' + $stateParams.bestPracticeName + '.html';
                     },
                     controller  : viewController
                 });
         };
 
-    angular.module('tightenSASS.basics', ['ui.router'])
+    angular.module('tightenSASS.bestPractices', ['ui.router'])
            .config(['$stateProvider', configCommandRoutes]);
 }());

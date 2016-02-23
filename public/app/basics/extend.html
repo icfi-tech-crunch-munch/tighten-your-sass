@@ -1,1 +1,74 @@
 <h2>Extend</h2>
+
+<p>Extending an existing selector creates a comma separated list of selectors for code reuse.</p>
+
+<pre class="language-scss"><code class="language-scss">.panel {
+    border-width: 1px;
+    border-style: solid;
+}
+
+.panel-default {
+    @extend .panel;
+
+    border-color: #ccc;
+}
+
+.panel-error {
+    @extend .panel;
+
+    border-color: #f00;
+}</code></pre>
+
+<p>Compiles to:</p>
+
+<pre class="language-css"><code class="language-css">.panel,
+.panel-default,
+.panel-error {
+    border-width: 1px;
+    border-style: solid;
+}
+
+.panel-default {
+    border-color: #ccc;
+}
+
+.panel-error {
+    border-color: #f00;
+}</code></pre>
+
+<h3>Placeholder</h3>
+
+<p>If you do not want the element you're extending to appear in compiled .css file, replace the selector <code>.</code> with <code>%</code></p>
+
+<pre class="language-scss"><code class="language-scss">%panel {
+    border-width: 1px;
+    border-style: solid;
+}
+
+.panel-default {
+    @extend .panel;
+
+    border-color: #ccc;
+}
+
+.panel-error {
+    @extend .panel;
+
+    border-color: #f00;
+}</code></pre>
+
+<p>Compiles to:</p>
+
+<pre class="language-css"><code class="language-css">.panel-default,
+.panel-error {
+    border-width: 1px;
+    border-style: solid;
+}
+
+.panel-default {
+    border-color: #ccc;
+}
+
+.panel-error {
+    border-color: #f00;
+}</code></pre>

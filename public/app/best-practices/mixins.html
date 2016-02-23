@@ -1,0 +1,86 @@
+<h2>Mixins</h2>
+
+<p>Mixins can quickly add bloat to your css.</p>
+
+<pre class="language-scss"><code class="language-scss">@mixin clearfix {
+  &amp;:before,
+  &amp;:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &amp;:after {
+    clear: both;
+  }
+}
+
+.row {
+    @include clearfix();
+}
+
+.column {
+    @include clearfix();
+}</code></pre>
+
+<p>compiles to:</p>
+
+<pre class="language-css"><code class="language-css">.row {
+  &amp;:before,
+  &amp;:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &amp;:after {
+    clear: both;
+  }
+}
+
+.column {
+  &amp;:before,
+  &amp;:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &amp;:after {
+    clear: both;
+  }
+}</code></pre>
+
+<p>Create a class and use <code>@extend</code> instead:</p>
+
+<pre class="language-scss"><code class="language-scss">@mixin clearfix {
+  &amp;:before,
+  &amp;:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &amp;:after {
+    clear: both;
+  }
+}
+
+.clearfix {
+    @include clearfix();
+}
+
+.row {
+    @extend .clearfix;
+}
+
+.column {
+    @extend .clearfix;
+}</code></pre>
+
+<p>compiles to:</p>
+
+<pre class="language-css"><code class="language-css">.clearfix,
+.row,
+.column {
+  &amp;:before,
+  &amp;:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &amp;:after {
+    clear: both;
+  }
+}</code></pre>

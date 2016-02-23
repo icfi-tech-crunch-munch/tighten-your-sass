@@ -1,0 +1,33 @@
+<h2>Variables</h2>
+
+<p>Use variables! Try to reduce 'magic numbers' or literals as much as possible.</p>
+
+<h3>Use contextual names.</h3>
+
+<p>Like class names, try to avoid literal descriptions.</p>
+
+<p>Discouraged:</p>
+<pre class="language-scss"><code class="language-scss">$red-border: #f00;
+$margin-top-10: 10px;
+</code></pre>
+
+<p>Preferred:</p>
+<pre class="language-scss"><code class="language-scss">$border-color-error: #f00;
+$margin-top-md: 10px;
+</code></pre>
+
+<h3>Use a consistent naming scheme.</h3>
+
+<pre class="language-scss"><code class="language-scss">$font-size-base: 14px;
+$font-size-lg: $font-size-base * 1.5;
+$font-size-sm: $font-size-base * .75;
+
+$border-radius-base: 5px;
+$border-radius-lg: $border-radius-base * 2;
+$border-radius-sm: $border-radius-base * .75;</code></pre>
+
+<h3>Use a <code>_variable.scss</code> file</h3>
+
+<p>Place all variables for the site in one file.</p>
+
+<p>Organize the variables in groups that match your partial structure.</p>
